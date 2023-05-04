@@ -7,12 +7,26 @@ Se tutto è ok stampare “Accesso riuscito”, altrimenti “Accesso negato” 
 
 <?php
 $name = $_GET["name"];
+$mail = $_GET["mail"];
+$age = $_GET["age"];
 
-if (strlen($name) > 3) {
-    var_dump('maggiore');
+if ((strlen($name) > 3) && (str_contains($mail, '.') && str_contains($mail, '@'))) {
+    echo 'ACCESSO RIUSCITO';
+    var_dump('ACCESSO RIUSCITO');
+} else {
+    echo 'ACCESSO NEGATO';
+    var_dump('ACCESSO NEGATO');
 }
 
+/* if (str_contains($mail, '.') && str_contains($mail, '@')) {
+    var_dump('contiene punto e chiocciola');
+} else {
+    var_dump('non li contiene');
+}
+ */
 var_dump($name);
+var_dump($mail);
+var_dump($age);
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +50,7 @@ var_dump($name);
                 <input type="text" name="name" id="" class="form-control" placeholder="name" aria-describedby="helpId">
 
                 <label for="" class="form-label">Mail</label>
-                <input type="mail" name="mail" id="" class="form-control" placeholder="email" aria-describedby="helpId">
+                <input type="text" name="mail" id="" class="form-control" placeholder="email" aria-describedby="helpId">
 
                 <label for="" class="form-label">Number</label>
                 <input type="number" placeholder="Age" name="age" class="form-control">
