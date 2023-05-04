@@ -31,12 +31,7 @@ $matches = [
         89 => 77,
     ],
 ];
-
-foreach ($matches as $match) {
-    foreach ($match as $key => $value) {
-        echo $key . ' - ' . $value . ' | ';
-    };
-}; ?>
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -50,18 +45,18 @@ foreach ($matches as $match) {
 
 <body>
     <?php
-    foreach ($matches as  $match) : ?>
+    foreach ($matches as $match) : ?>
         <p>
-            <?= $key . ': ' . $value ?>
+            <?php
+            foreach ($match as $key => $value) : ?>
+                <span>
+                    <?= $key . ' - ' . $value . ' | ' ?>
+                </span>
+            <?php endforeach ?>
         </p>
     <?php endforeach ?>
 
-    <?php
-    foreach ($_GET as $key => $value) : ?>
-        <p>
-            <?= $key . ': ' . $value ?>
-        </p>
-    <?php endforeach ?>
+
 </body>
 
 </html>
